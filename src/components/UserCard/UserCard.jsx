@@ -28,8 +28,10 @@ export default function UserCard({
     }
   };
 
-  const [followers, setFollowers] = useState(totalFollowers);
   const [isFollow, setIsFollow] = useState(defineFollowingState);
+  const [followers, setFollowers] = useState(
+    isFollow === false ? totalFollowers : totalFollowers + 1
+  );
   const [btnTextContent, setBtnTextContent] = useState(
     isFollow === false ? 'Follow' : 'Unfollow'
   );
