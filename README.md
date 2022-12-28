@@ -1,4 +1,4 @@
-# Test task from learning courses by GoIt
+# Test task from tech courses by GoIt
 
 # DESCRIPTION
 
