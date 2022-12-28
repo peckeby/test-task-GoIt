@@ -1,16 +1,13 @@
+import UserList from './UserList/UserList';
+import usersData from '../assets/users.json';
+
+import { GlobalStyle } from './utils/GlobalStyles';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <UserList users={usersData}></UserList>;
+      <GlobalStyle />
+    </>
   );
 };

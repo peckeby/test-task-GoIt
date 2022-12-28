@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "user": "Elon Reeve Musk",
+    "tweets": 777,
+    "followers": 100500,
+    "avatar": "https://i.ibb.co/0BMq3sz/Hansel.png"
+  },
+  {
+    "id": 2,
+    "user": "Mary Book Lane",
+    "tweets": 38,
+    "followers": 95,
+    "avatar": "https://cdn-icons-png.flaticon.com/512/4721/4721672.png"
+  },
+  {
+    "id": 3,
+    "user": "Iron Man",
+    "tweets": 666,
+    "followers": 80000,
+    "avatar": "https://cdn-icons-png.flaticon.com/512/4721/4721834.png"
+  },
+  {
+    "id": 4,
+    "user": "Nicol Rose",
+    "tweets": 543,
+    "followers": 3422,
+    "avatar": "https://cdn-icons-png.flaticon.com/512/4721/4721808.png"
+  },
+  {
+    "id": 5,
+    "user": "Max Road",
+    "tweets": 10022,
+    "followers": 65576,
+    "avatar": "https://cdn-icons-png.flaticon.com/512/4721/4721653.png"
+  },
+  {
+    "id": 6,
+    "user": "Richter Martinz",
+    "tweets": 563,
+    "followers": 4,
+    "avatar": "https://cdn-icons-png.flaticon.com/512/4721/4721637.png"
+  }
+]
