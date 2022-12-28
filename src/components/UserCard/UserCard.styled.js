@@ -70,6 +70,7 @@ export const FollowButton = styled.button`
   border: 0;
   margin-top: 25px;
   transition: 250ms;
+  text-transform: uppercase;
 
   &:hover {
     transform: scale(1.05);
