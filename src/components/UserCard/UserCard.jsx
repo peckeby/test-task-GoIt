@@ -36,6 +36,8 @@ export default function UserCard({
     isFollow === false ? 'Follow' : 'Unfollow'
   );
 
+  const []
+
   const onFollow = () => {
     setIsFollow(!isFollow);
     if (isFollow === false) {
