@@ -1,17 +1,18 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 import {
   UserCardLi,
   LogoPictureDiv,
-  SectionBorder,
   Avatar,
-  AvatarFrame,
   InfoSection,
+  InfoSectionItems,
   InfoText,
-  FollowButtonCase,
+  SpanImg,
+  FollowButton,
+  FollowingButton,
 } from './UserCard.styled';
-import YourImage from '../images/backgroundGroup.png';
-import Ellips from '../images/ellipse.png';
+
 import LogoSvg from 'components/Logo/Logo';
 
 export default function UserCard({
@@ -20,63 +21,56 @@ export default function UserCard({
   tweetsNumber,
   totalFollowers,
 }) {
-  const defineFollowingState = () => {
-    if (localStorage.getItem(`${name}`)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const [isFollow, setIsFollow] = useState(false);
+  const [followers, setFollowers] = useState(totalFollowers);
+  const [btnTextContent, setBtnTextContent] = useState('Follow');
 
-  const [isFollow, setIsFollow] = useState(defineFollowingState);
-  const [followers, setFollowers] = useState(
-    isFollow === false ? totalFollowers : totalFollowers + 1
-  );
-  const [btnTextContent, setBtnTextContent] = useState(
-    isFollow === false ? 'Follow' : 'Unfollow'
-  );
+  useEffect(() => {
+    const UserUpdate = () => {
+      if (localStorage.getItem(`${name}`)) {
+        setFollowers(followers + 1);
+        setBtnTextContent('Following');
+      }
 
-  const []
+      if (!localStorage.getItem(`${name}`) && isFollow === true) {
+        setFollowers(followers + 1);
+        setBtnTextContent('Following');
+        localStorage.setItem(`${name}`, 'isFollowing');
+      }
+      if (localStorage.getItem(`${name}`) && followers > totalFollowers) {
+        setFollowers(followers - 1);
+        setBtnTextContent('Follow');
+        localStorage.removeItem(`${name}`);
+      }
+    };
+    UserUpdate();
+  }, [isFollow]);
 
   const onFollow = () => {
     setIsFollow(!isFollow);
-    if (isFollow === false) {
-      setFollowers(followers + 1);
-      setBtnTextContent('Unfollow');
-      localStorage.setItem(`${name}`, 'isFollowing');
-    } else {
-      setFollowers(followers - 1);
-      setBtnTextContent('Follow');
-      localStorage.removeItem(`${name}`);
-    }
   };
 
   return (
     <UserCardLi>
       <LogoPictureDiv>
         <LogoSvg />
-        <img alt="background" src={YourImage} width={357} height={194} />
       </LogoPictureDiv>
-      <SectionBorder></SectionBorder>
+      <Avatar src={avatar} alt={name} width={72} height={72} loading="lazy" />
+      <SpanImg />
       <InfoSection>
-        <AvatarFrame alt="Ellipse" src={Ellips} width={92} height={92} />
-        <Avatar src={avatar} alt={name} width={72} height={72} />
-        <InfoText>{tweetsNumber} tweets</InfoText>
-        <p>{followers.toLocaleString('en-US')} followers</p>
-        {btnTextContent === 'Follow' ? (
-          <FollowButtonCase type="button" name="followbtn" onClick={onFollow}>
-            {btnTextContent}
-          </FollowButtonCase>
-        ) : (
-          <FollowButtonCase
-            $mode="following"
-            type="button"
-            name="followbtn"
-            onClick={onFollow}
-          >
-            {btnTextContent}
-          </FollowButtonCase>
-        )}
+        <InfoSectionItems>
+          <InfoText>{tweetsNumber} tweets</InfoText>
+          <p>{followers.toLocaleString('en-US')} followers</p>
+          {btnTextContent === 'Follow' ? (
+            <FollowButton type="button" name="followbtn" onClick={onFollow}>
+              {btnTextContent}
+            </FollowButton>
+          ) : (
+            <FollowingButton type="button" name="followbtn" onClick={onFollow}>
+              {btnTextContent}
+            </FollowingButton>
+          )}
+        </InfoSectionItems>
       </InfoSection>
     </UserCardLi>
   );
