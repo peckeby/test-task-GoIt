@@ -25,25 +25,27 @@ export default function UserCard({
   const [followers, setFollowers] = useState(totalFollowers);
   const [btnTextContent, setBtnTextContent] = useState('Follow');
 
-  useEffect(() => {
-    const UserUpdate = () => {
-      if (localStorage.getItem(`${name}`)) {
-        setFollowers(followers + 1);
-        setBtnTextContent('Following');
-      }
+  const UserUpdate = () => {
+    if (localStorage.getItem(`${name}`)) {
+      setFollowers(followers + 1);
+      setBtnTextContent('Following');
+    }
 
-      if (!localStorage.getItem(`${name}`) && isFollow === true) {
-        setFollowers(followers + 1);
-        setBtnTextContent('Following');
-        localStorage.setItem(`${name}`, 'isFollowing');
-      }
-      if (localStorage.getItem(`${name}`) && followers > totalFollowers) {
-        setFollowers(followers - 1);
-        setBtnTextContent('Follow');
-        localStorage.removeItem(`${name}`);
-      }
-    };
+    if (!localStorage.getItem(`${name}`) && isFollow === true) {
+      setFollowers(followers + 1);
+      setBtnTextContent('Following');
+      localStorage.setItem(`${name}`, 'isFollowing');
+    }
+    if (localStorage.getItem(`${name}`) && followers > totalFollowers) {
+      setFollowers(followers - 1);
+      setBtnTextContent('Follow');
+      localStorage.removeItem(`${name}`);
+    }
+  };
+
+  useEffect(() => {
     UserUpdate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFollow]);
 
   const onFollow = () => {
