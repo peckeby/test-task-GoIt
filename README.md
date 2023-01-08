@@ -1,4 +1,4 @@
-# Test task from tech courses by GoIt
+# A React app for user cards with a dynamic follower state
 
 # DESCRIPTION
 
