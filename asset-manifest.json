@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/test-task-GoIt/static/css/main.7acaea2f.css",
-    "main.js": "/test-task-GoIt/static/js/main.84bd6fe4.js",
-    "static/media/backgroundGroup.png": "/test-task-GoIt/static/media/backgroundGroup.bac68a8fe51eaffb7352.png",
-    "static/media/icons.svg": "/test-task-GoIt/static/media/icons.80b3a0185af10e4e1198aed7865d51dc.svg",
-    "index.html": "/test-task-GoIt/index.html",
-    "main.7acaea2f.css.map": "/test-task-GoIt/static/css/main.7acaea2f.css.map",
-    "main.84bd6fe4.js.map": "/test-task-GoIt/static/js/main.84bd6fe4.js.map"
+    "main.css": "/user-cards/static/css/main.7acaea2f.css",
+    "main.js": "/user-cards/static/js/main.773013a4.js",
+    "static/media/backgroundGroup.png": "/user-cards/static/media/backgroundGroup.bac68a8fe51eaffb7352.png",
+    "static/media/icons.svg": "/user-cards/static/media/icons.80b3a0185af10e4e1198aed7865d51dc.svg",
+    "index.html": "/user-cards/index.html",
+    "main.7acaea2f.css.map": "/user-cards/static/css/main.7acaea2f.css.map",
+    "main.773013a4.js.map": "/user-cards/static/js/main.773013a4.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.84bd6fe4.js"
+    "static/js/main.773013a4.js"
   ]
 }
